@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 
-function Question() {
+function Question(props) {
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
 
-  const setBudget = e => {
+  const { setBudget, setAskBudget } = props;
+
+  const saveBudget = e => {
     e.preventDefault();
 
     console.log(typeof quantity);
-    // validation
+    // Validation
     if (quantity < 1 || isNaN(quantity)) {
       setError(true);
       return;
     }
-    //
+    // After validate
+    setError(false);
+    setBudget(quantity);
+    setAskBudget(false);
   };
 
   return (
@@ -26,7 +31,7 @@ function Question() {
         </p>
       ) : null}
 
-      <form onSubmit={setBudget}>
+      <form onSubmit={saveBudget}>
         <input
           type="number"
           className="u-full-width"
