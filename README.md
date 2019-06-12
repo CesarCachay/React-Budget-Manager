@@ -1,3 +1,5 @@
+This is a simple app which would help you to manage your money, It will ask you to define your current budget and when you spent more than 50%. It will change to another color (orange) and after spending more than 75% it will change to red.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
