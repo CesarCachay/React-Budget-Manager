@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Error from "./Error";
+
 function Question(props) {
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
@@ -9,7 +11,6 @@ function Question(props) {
   const saveBudget = e => {
     e.preventDefault();
 
-    console.log(typeof quantity);
     // Validation
     if (quantity < 1 || isNaN(quantity)) {
       setError(true);
@@ -25,11 +26,7 @@ function Question(props) {
     <>
       <h2>Define your Budget</h2>
 
-      {error ? (
-        <p className="alert alert-danger error ">
-          The budget is not defined, please enter a budget
-        </p>
-      ) : null}
+      {error ? <Error message="The expense is not defined" /> : null}
 
       <form onSubmit={saveBudget}>
         <input
