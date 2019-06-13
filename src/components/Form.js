@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import shortid from "shortid";
 
 import Error from "./Error";
 
-function Form() {
+function Form(props) {
+  const { setExpense } = props;
   const [nameExpense, setNameExpense] = useState("");
   const [qtyExpense, setQtyExpense] = useState(0);
   const [error, setError] = useState(false);
@@ -16,6 +18,23 @@ function Form() {
       setError(true);
       return;
     }
+
+    // Build the "expense" object
+    const expense = {
+      nameExpense,
+      qtyExpense,
+      id: shortid.generate()
+    };
+
+    // Transfer the expense to the main component
+    setExpense(expense);
+
+    // Delete alert
+    setError(false);
+
+    // Reset the form
+    setNameExpense("");
+    setQtyExpense("");
   };
 
   return (
@@ -31,6 +50,7 @@ function Form() {
           className="u-full-width"
           placeholder="Ej. Food"
           onChange={e => setNameExpense(e.target.value)}
+          value={nameExpense}
         />
       </div>
       <div className="field">
@@ -40,6 +60,7 @@ function Form() {
           className="u-full-width"
           placeholder="Ej. 50"
           onChange={e => setQtyExpense(parseInt(e.target.value, 10))}
+          value={qtyExpense}
         />
       </div>
 

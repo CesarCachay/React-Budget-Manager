@@ -6,6 +6,8 @@ import Question from "./components/Question";
 function App() {
   const [budget, setBudget] = useState(0);
   const [askBudget, setAskBudget] = useState(true);
+  const [expense, setExpense] = useState({});
+  const [expenses, setExpenses] = useState([]);
 
   return (
     <div className="App container">
@@ -17,7 +19,7 @@ function App() {
           ) : (
             <div className="row">
               <div className="one-half column">
-                <Form />
+                <Form setExpense={setExpense} />
               </div>
               <div className="one-half column">Budget here</div>
             </div>
