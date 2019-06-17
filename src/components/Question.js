@@ -6,7 +6,7 @@ function Question(props) {
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
 
-  const { setBudget, setAskBudget } = props;
+  const { setBudget, setAskBudget, setMoneyLeft } = props;
 
   const saveBudget = e => {
     e.preventDefault();
@@ -19,6 +19,7 @@ function Question(props) {
     // After validate
     setError(false);
     setBudget(quantity);
+    setMoneyLeft(quantity);
     setAskBudget(false);
   };
 

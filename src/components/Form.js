@@ -4,7 +4,7 @@ import shortid from "shortid";
 import Error from "./Error";
 
 function Form(props) {
-  const { setExpense } = props;
+  const { setExpense, setCreateExpense } = props;
   const [nameExpense, setNameExpense] = useState("");
   const [qtyExpense, setQtyExpense] = useState(0);
   const [error, setError] = useState(false);
@@ -28,6 +28,7 @@ function Form(props) {
 
     // Transfer the expense to the main component
     setExpense(expense);
+    setCreateExpense(true);
 
     // Delete alert
     setError(false);
