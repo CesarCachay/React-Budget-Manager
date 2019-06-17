@@ -78,6 +78,11 @@ h2 {
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+.alert-none {
+  color: #faefef;
+  background-color: #f11717;
+  border-color: #5f180c;
+}
 .performed-expenses {
   margin-bottom: 2rem;
 }

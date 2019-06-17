@@ -18,10 +18,14 @@ function App() {
       const listExpenses = [...expenses, expense];
       setExpenses(listExpenses);
 
+      // Subtract the budget
+      const remainingMoney = moneyLeft - expense.qtyExpense;
+      setMoneyLeft(remainingMoney);
+
       // Once it creates an expense, change it to false again
       setCreateExpense(false);
     }
-  }, [createExpense]);
+  }, [createExpense, expense, expenses, moneyLeft]);
 
   return (
     <div className="App container">
